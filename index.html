@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lalit Kishor Kolhe — AI Engineer & Product Manager</title>
+<meta name="description" content="Portfolio of Lalit Kishor Kolhe — AI/GenAI Engineer and Product Manager based in Dallas, TX. Building intelligent systems and the product strategy around them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B1120;
+  --surface:#121B30;
+  --card:rgba(255,255,255,0.035);
+  --line:rgba(148,163,184,0.16);
+  --cyan:#22D3EE;
+  --cyan-dim:rgba(34,211,238,0.12);
+  --amber:#F5A623;
+  --amber-dim:rgba(245,166,35,0.12);
+  --text:#E6EDF7;
+  --muted:#8FA3BF;
+  --radius:16px;
+  --font-display:'Sora',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--text);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.65;
+  overflow-x:hidden;
+}
+::selection{background:var(--cyan);color:var(--ink)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* ---------- ambient background ---------- */
+.bg{
+  position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(900px 600px at 85% -10%, rgba(34,211,238,0.09), transparent 60%),
+    radial-gradient(800px 600px at -10% 45%, rgba(245,166,35,0.07), transparent 60%),
+    var(--ink);
+}
+.bg::after{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(148,163,184,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148,163,184,0.045) 1px, transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 75%);
+}
+
+/* ---------- scroll progress ---------- */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:1000;
+  background:linear-gradient(90deg,var(--cyan),var(--amber));transition:width .1s linear}
+
+/* ---------- nav ---------- */
+nav{
+  position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:900;
+  display:flex;align-items:center;gap:6px;
+  padding:8px 10px;border-radius:100px;
+  background:rgba(11,17,32,0.72);border:1px solid var(--line);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  white-space:nowrap;max-width:calc(100vw - 24px);overflow-x:auto;scrollbar-width:none;
+}
+nav::-webkit-scrollbar{display:none}
+nav .logo{
+  font-family:var(--font-mono);font-weight:600;font-size:13px;
+  padding:6px 12px;border-radius:100px;
+  background:linear-gradient(120deg,var(--cyan-dim),var(--amber-dim));
+  border:1px solid var(--line);letter-spacing:.5px;
+}
+nav .logo span{color:var(--cyan)}
+nav a.nav-link{
+  font-size:13.5px;font-weight:500;color:var(--muted);
+  padding:6px 12px;border-radius:100px;transition:color .2s,background .2s;
+}
+nav a.nav-link:hover{color:var(--text);background:rgba(255,255,255,0.05)}
+
+/* ---------- layout ---------- */
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+section{padding:88px 0}
+.eyebrow{
+  font-family:var(--font-mono);font-size:12.5px;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:12px;
+  margin-bottom:14px;
+}
+.eyebrow::before{content:"";width:34px;height:1px;background:linear-gradient(90deg,var(--cyan),var(--amber))}
+h2{font-family:var(--font-display);font-size:clamp(26px,3.4vw,36px);font-weight:700;
+  letter-spacing:-.5px;margin-bottom:34px}
+
+/* ---------- hero ---------- */
+header.hero{min-height:100vh;display:flex;align-items:center;padding:130px 0 70px}
+.hero-grid{display:grid;grid-template-columns:1.25fr .85fr;gap:56px;align-items:center;width:100%}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-mono);font-size:12.5px;color:var(--muted);
+  border:1px solid var(--line);border-radius:100px;padding:6px 14px;margin-bottom:22px;
+  background:rgba(255,255,255,0.03);
+}
+.hero-kicker .dot{width:7px;height:7px;border-radius:50%;background:#34D399;
+  box-shadow:0 0 10px rgba(52,211,153,.7);animation:pulse 2.2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+h1{
+  font-family:var(--font-display);font-weight:800;
+  font-size:clamp(38px,5.6vw,66px);line-height:1.06;letter-spacing:-1.5px;margin-bottom:20px;
+}
+h1 .role-a{background:linear-gradient(120deg,var(--cyan),#7DD3FC);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1 .role-b{background:linear-gradient(120deg,var(--amber),#FBBF24);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1 .amp{color:var(--muted);font-weight:400}
+.hero-sub{color:var(--muted);font-size:17px;max-width:560px;margin-bottom:30px}
+.hero-sub strong{color:var(--text);font-weight:600}
+
+/* role lens — signature element */
+.lens{
+  display:inline-flex;gap:4px;padding:5px;border-radius:14px;
+  background:rgba(255,255,255,0.04);border:1px solid var(--line);margin-bottom:30px;
+}
+.lens button{
+  font-family:var(--font-mono);font-size:12.5px;font-weight:500;letter-spacing:.4px;
+  color:var(--muted);background:transparent;border:1px solid transparent;border-radius:10px;
+  padding:9px 16px;cursor:pointer;transition:all .25s;
+}
+.lens button:hover{color:var(--text)}
+.lens button.active{color:var(--text);background:rgba(255,255,255,0.07);border-color:var(--line)}
+.lens button.active[data-lens="ai"]{color:var(--cyan);background:var(--cyan-dim);border-color:rgba(34,211,238,.35)}
+.lens button.active[data-lens="pm"]{color:var(--amber);background:var(--amber-dim);border-color:rgba(245,166,35,.35)}
+.lens-hint{font-family:var(--font-mono);font-size:11.5px;color:var(--muted);opacity:.75;margin:-18px 0 26px;display:block}
+
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:32px}
+.btn{
+  font-weight:600;font-size:14.5px;border-radius:12px;padding:13px 24px;
+  display:inline-flex;align-items:center;gap:9px;transition:transform .2s,box-shadow .2s,background .2s;
+  cursor:pointer;border:1px solid transparent;
+}
+.btn-primary{background:linear-gradient(120deg,var(--cyan),#38BDF8);color:#04202B}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(34,211,238,.28)}
+.btn-ghost{border-color:var(--line);color:var(--text);background:rgba(255,255,255,.03)}
+.btn-ghost:hover{transform:translateY(-2px);background:rgba(255,255,255,.07)}
+.hero-links{display:flex;gap:20px;flex-wrap:wrap;font-family:var(--font-mono);font-size:13px;color:var(--muted)}
+.hero-links a{display:inline-flex;align-items:center;gap:7px;transition:color .2s}
+.hero-links a:hover{color:var(--cyan)}
+.hero-links svg{width:15px;height:15px;flex:none}
+
+/* photo */
+.photo-wrap{position:relative;justify-self:center}
+.photo-frame{
+  position:relative;width:min(340px,80vw);aspect-ratio:4/4.7;border-radius:24px;overflow:hidden;
+  border:1px solid var(--line);
+  background:linear-gradient(160deg,#16223C,#0D1526);
+  box-shadow:0 30px 80px rgba(0,0,0,.5);
+}
+.photo-frame img{width:100%;height:100%;object-fit:cover}
+.monogram{
+  position:absolute;inset:0;display:none;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-size:96px;font-weight:800;letter-spacing:-3px;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(34,211,238,.18), transparent 55%),
+    radial-gradient(circle at 75% 80%, rgba(245,166,35,.16), transparent 55%),
+    linear-gradient(160deg,#16223C,#0D1526);
+  color:var(--text);
+}
+.monogram small{position:absolute;bottom:26px;font-family:var(--font-mono);font-size:11px;
+  letter-spacing:3px;color:var(--muted);font-weight:400}
+.photo-ring{
+  position:absolute;inset:-14px;border-radius:32px;z-index:-1;
+  background:conic-gradient(from 140deg, var(--cyan), transparent 30%, var(--amber) 55%, transparent 80%, var(--cyan));
+  filter:blur(22px);opacity:.5;animation:ringspin 14s linear infinite;
+}
+@keyframes ringspin{to{transform:rotate(360deg)}}
+.photo-chip{
+  position:absolute;border-radius:12px;border:1px solid var(--line);
+  background:rgba(11,17,32,.85);backdrop-filter:blur(10px);
+  font-family:var(--font-mono);font-size:12px;padding:9px 14px;display:flex;gap:8px;align-items:center;
+  box-shadow:0 12px 30px rgba(0,0,0,.4);
+}
+.chip-ai{top:22px;left:-34px;color:var(--cyan);animation:floaty 5s ease-in-out infinite}
+.chip-pm{bottom:34px;right:-30px;color:var(--amber);animation:floaty 5s ease-in-out 2.5s infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+/* ---------- stats strip ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-top:6px}
+.stat{background:var(--surface);padding:26px 22px}
+.stat b{font-family:var(--font-display);font-size:30px;font-weight:700;display:block;letter-spacing:-.5px}
+.stat b em{font-style:normal;background:linear-gradient(120deg,var(--cyan),var(--amber));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{font-size:13px;color:var(--muted)}
+
+/* ---------- track tags ---------- */
+.tag{
+  font-family:var(--font-mono);font-size:10.5px;font-weight:600;letter-spacing:1.2px;
+  text-transform:uppercase;border-radius:6px;padding:3px 9px;display:inline-block;
+}
+.tag.ai{color:var(--cyan);background:var(--cyan-dim);border:1px solid rgba(34,211,238,.3)}
+.tag.pm{color:var(--amber);background:var(--amber-dim);border:1px solid rgba(245,166,35,.3)}
+.tag.both{color:var(--muted);background:rgba(148,163,184,.1);border:1px solid var(--line)}
+
+/* lens dimming */
+[data-track]{transition:opacity .35s,filter .35s}
+body.lens-ai [data-track="pm"]{opacity:.32;filter:saturate(.4)}
+body.lens-pm [data-track="ai"]{opacity:.32;filter:saturate(.4)}
+body.lens-ai .card[data-track="ai"],body.lens-ai li[data-track="ai"]{opacity:1}
+body.lens-pm .card[data-track="pm"],body.lens-pm li[data-track="pm"]{opacity:1}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:44px;align-items:start}
+.about-copy p{color:#C4D0E2;margin-bottom:18px;font-size:16.5px}
+.about-copy p strong{color:var(--text)}
+.pillars{display:grid;gap:14px}
+.pillar{
+  border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;background:var(--card);
+  transition:transform .25s,border-color .25s;
+}
+.pillar:hover{transform:translateX(6px)}
+.pillar[data-track="ai"]:hover{border-color:rgba(34,211,238,.4)}
+.pillar[data-track="pm"]:hover{border-color:rgba(245,166,35,.4)}
+.pillar h3{font-family:var(--font-display);font-size:16px;font-weight:600;margin:8px 0 6px}
+.pillar p{font-size:14px;color:var(--muted)}
+
+/* ---------- skills ---------- */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--card);
+  padding:24px;transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+.card:hover{transform:translateY(-5px)}
+.card[data-track="ai"]:hover{border-color:rgba(34,211,238,.45);box-shadow:0 16px 40px rgba(34,211,238,.09)}
+.card[data-track="pm"]:hover{border-color:rgba(245,166,35,.45);box-shadow:0 16px 40px rgba(245,166,35,.09)}
+.card[data-track="both"]:hover{border-color:rgba(148,163,184,.45)}
+.card h3{font-family:var(--font-display);font-size:15.5px;font-weight:600;margin:10px 0 12px}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chips span{
+  font-size:12.5px;color:#B9C6DA;border:1px solid var(--line);border-radius:8px;
+  padding:4px 10px;background:rgba(255,255,255,.025);
+}
+
+/* ---------- experience ---------- */
+.timeline{position:relative;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;
+  background:linear-gradient(180deg,var(--cyan),var(--amber));opacity:.4;border-radius:2px}
+.job{position:relative;margin-bottom:52px}
+.job::before{content:"";position:absolute;left:-33px;top:8px;width:16px;height:16px;border-radius:50%;
+  background:var(--ink);border:3px solid var(--cyan);box-shadow:0 0 0 4px rgba(34,211,238,.14)}
+.job:nth-child(2)::before{border-color:#7DD3FC}
+.job:nth-child(3)::before{border-color:var(--amber);box-shadow:0 0 0 4px rgba(245,166,35,.14)}
+.job-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:6px}
+.job-head h3{font-family:var(--font-display);font-size:19px;font-weight:700}
+.job-head .when{font-family:var(--font-mono);font-size:12.5px;color:var(--muted);
+  border:1px solid var(--line);border-radius:100px;padding:5px 13px;background:rgba(255,255,255,.03);align-self:center}
+.job .org{font-size:14.5px;color:var(--muted);margin-bottom:16px}
+.job .org b{color:#C4D0E2;font-weight:600}
+.job ul{list-style:none;display:grid;gap:11px}
+.job li{
+  position:relative;padding:13px 16px 13px 18px;font-size:14.8px;color:#C4D0E2;
+  border:1px solid var(--line);border-left-width:3px;border-radius:10px;background:var(--card);
+}
+.job li[data-track="ai"]{border-left-color:var(--cyan)}
+.job li[data-track="pm"]{border-left-color:var(--amber)}
+.job li[data-track="both"]{border-left-color:#8FA3BF}
+.job li b{color:var(--text);font-weight:600}
+.job li .tag{margin-left:8px;vertical-align:1px}
+
+/* ---------- projects ---------- */
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.project{
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--card);
+  padding:26px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden;
+  transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+.project::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;opacity:.85}
+.project[data-track="ai"]::before{background:linear-gradient(90deg,var(--cyan),transparent)}
+.project[data-track="pm"]::before{background:linear-gradient(90deg,var(--amber),transparent)}
+.project:hover{transform:translateY(-6px)}
+.project[data-track="ai"]:hover{border-color:rgba(34,211,238,.45);box-shadow:0 18px 44px rgba(34,211,238,.1)}
+.project[data-track="pm"]:hover{border-color:rgba(245,166,35,.45);box-shadow:0 18px 44px rgba(245,166,35,.1)}
+.project-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.project h3{font-family:var(--font-display);font-size:17.5px;font-weight:700;line-height:1.3}
+.project p{font-size:14.3px;color:var(--muted)}
+.project .stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:6px}
+.project .stack span{font-family:var(--font-mono);font-size:11.5px;color:#B9C6DA;
+  border:1px solid var(--line);border-radius:6px;padding:3px 8px}
+.repo{
+  font-family:var(--font-mono);font-size:12.5px;display:inline-flex;align-items:center;gap:7px;
+  color:var(--muted);transition:color .2s;flex:none;
+}
+.repo:hover{color:var(--cyan)}
+.repo svg{width:15px;height:15px}
+
+/* ---------- education / creds ---------- */
+.edu-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:start}
+.edu-col,.cred-col{display:grid;gap:16px}
+.edu{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:22px 24px;
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.edu h3{font-family:var(--font-display);font-size:15.5px;font-weight:600;margin-bottom:4px}
+.edu p{font-size:13.5px;color:var(--muted)}
+.edu .when{font-family:var(--font-mono);font-size:12px;color:var(--muted);align-self:flex-start;
+  border:1px solid var(--line);border-radius:100px;padding:4px 11px;background:rgba(255,255,255,.03)}
+.cred{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:20px 24px;
+  display:flex;align-items:center;gap:14px}
+.cred .ic{width:38px;height:38px;flex:none;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--cyan-dim),var(--amber-dim));border:1px solid var(--line)}
+.cred h3{font-family:var(--font-display);font-size:14.5px;font-weight:600}
+.cred p{font-size:12.5px;color:var(--muted)}
+.subhead{font-family:var(--font-mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);margin:6px 0 2px}
+
+/* ---------- contact ---------- */
+.contact{
+  border:1px solid var(--line);border-radius:24px;padding:56px 40px;text-align:center;
+  background:
+    radial-gradient(600px 300px at 20% 0%, rgba(34,211,238,.1), transparent 60%),
+    radial-gradient(600px 300px at 80% 100%, rgba(245,166,35,.09), transparent 60%),
+    var(--surface);
+}
+.contact h2{margin-bottom:14px}
+.contact p{color:var(--muted);max-width:540px;margin:0 auto 30px}
+.contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+footer{padding:36px 0 46px;text-align:center;color:var(--muted);font-size:13px;font-family:var(--font-mono)}
+footer b{color:#C4D0E2;font-weight:500}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- responsive ---------- */
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .photo-wrap{order:-1}
+  .chip-ai{left:-8px}.chip-pm{right:-8px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .about-grid,.edu-grid{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+  .projects-grid{grid-template-columns:1fr}
+  header.hero{padding-top:110px}
+}
+@media(max-width:600px){
+  .skills-grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  nav a.nav-link{padding:6px 9px}
+  section{padding:64px 0}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+.btn:focus-visible,.lens button:focus-visible,a:focus-visible{
+  outline:2px solid var(--cyan);outline-offset:3px;border-radius:8px}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div id="progress"></div>
+
+<nav aria-label="Primary">
+  <a class="logo" href="#top"><span>LK</span>·KOLHE</a>
+  <a class="nav-link" href="#about">About</a>
+  <a class="nav-link" href="#skills">Skills</a>
+  <a class="nav-link" href="#experience">Experience</a>
+  <a class="nav-link" href="#projects">Projects</a>
+  <a class="nav-link" href="#education">Education</a>
+  <a class="nav-link" href="#contact">Contact</a>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="hero-kicker"><span class="dot"></span>Dallas, TX · Open to relocation</span>
+      <h1>Lalit Kishor Kolhe<br>
+        <span class="role-a">AI Engineer</span> <span class="amp">&amp;</span> <span class="role-b">Product Manager</span>
+      </h1>
+      <p class="hero-sub">I build <strong>production-grade GenAI and data systems</strong> — and I bring the <strong>product strategy, analysis, and stakeholder leadership</strong> to make them succeed. 6+ years across engineering, data, and business analysis.</p>
+
+      <div class="lens" role="tablist" aria-label="View portfolio through a role lens">
+        <button data-lens="all" class="active" role="tab" aria-selected="true">◈ Full profile</button>
+        <button data-lens="ai" role="tab" aria-selected="false">⌁ AI / ML Engineering</button>
+        <button data-lens="pm" role="tab" aria-selected="false">◎ Product &amp; Strategy</button>
+      </div>
+      <span class="lens-hint">// switch the lens — the page re-focuses on that side of my work</span>
+
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#projects">View my work →</a>
+        <a class="btn btn-ghost" href="mailto:lalitkolhe2010@gmail.com">Get in touch</a>
+      </div>
+
+      <div class="hero-links">
+        <a href="mailto:lalitkolhe2010@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>lalitkolhe2010@gmail.com</a>
+        <a href="tel:+19459007264"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>+1 (945) 900-7264</a>
+        <a href="https://www.linkedin.com/in/lalit-kolhe/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v2a6 6 0 0 1 2-2z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+        <a href="https://github.com/LalitKolhe0" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-1-2.6c3.2-.4 6.5-1.6 6.5-7A5.4 5.4 0 0 0 20 4.8 5 5 0 0 0 19.9 1S18.7.7 16 2.5a13.4 13.4 0 0 0-7 0C6.3.7 5.1 1 5.1 1A5 5 0 0 0 5 4.8a5.4 5.4 0 0 0-1.5 3.7c0 5.4 3.3 6.6 6.4 7a3.4 3.4 0 0 0-.9 2.6V22"/></svg>GitHub</a>
+      </div>
+    </div>
+
+    <div class="photo-wrap">
+      <div class="photo-ring" aria-hidden="true"></div>
+      <div class="photo-frame">
+        <img id="profilePhoto" src="__PHOTO_BASE64__" alt="Portrait of Lalit Kishor Kolhe">
+        <div class="monogram" id="monogram" aria-hidden="true">LK<small>KOLHE</small></div>
+      </div>
+      <div class="photo-chip chip-ai">⌁ RAG · LangChain · GPT-4o</div>
+      <div class="photo-chip chip-pm">◎ Roadmaps · A/B Testing · BRDs</div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= STATS ================= -->
+<div class="wrap reveal">
+  <div class="stats">
+    <div class="stat"><b><em>6+</em></b><span>Years across engineering, data &amp; analysis</span></div>
+    <div class="stat"><b><em>250M+</em></b><span>Ad impressions analyzed in A/B experiments</span></div>
+    <div class="stat"><b><em>50K+</em></b><span>Users served by platforms I built &amp; optimized</span></div>
+    <div class="stat"><b><em>25+</em></b><span>Enterprise HR implementations delivered</span></div>
+  </div>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow reveal">01 — About</div>
+    <h2 class="reveal">One professional, two complementary strengths</h2>
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <p>Most teams have engineers who build and analysts who translate. <strong>I do both — deliberately.</strong> My career has moved between writing production Python and leading stakeholder workshops, and each side sharpens the other: I scope products knowing exactly what it takes to ship them, and I build systems knowing exactly what the business needs from them.</p>
+        <p>On the engineering side, I've delivered <strong>production-grade GenAI applications</strong> — RAG pipelines with LangChain, Pinecone, and ChromaDB, semantic and hybrid search, and LLM-powered assistants on GPT-4/4o, LLaMA, and Ollama — alongside <strong>cloud-native data platforms</strong> on GCP with BigQuery, Cloud Composer, Pub/Sub, Docker, and CI/CD.</p>
+        <p>On the product side, I've led <strong>end-to-end business analysis and product initiatives</strong>: 50+ stakeholder workshops, BRDs and SOPs, process mapping, roadmap planning, and large-scale experimentation — including an A/B test spanning 250M+ impressions and revenue modeling projecting multimillion-dollar growth.</p>
+        <p>The result: I can own a problem from <strong>discovery through deployment</strong> — and speak fluently to both the engineering team and the boardroom.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar reveal" data-track="ai">
+          <span class="tag ai">Build</span>
+          <h3>GenAI &amp; Data Engineering</h3>
+          <p>RAG systems, LLM apps, FastAPI backends, and streaming data pipelines on GCP &amp; AWS.</p>
+        </div>
+        <div class="pillar reveal" data-track="pm">
+          <span class="tag pm">Strategize</span>
+          <h3>Product &amp; Business Analysis</h3>
+          <p>Roadmaps, requirements, experimentation, and stakeholder leadership from MVP to scale.</p>
+        </div>
+        <div class="pillar reveal" data-track="both">
+          <span class="tag both">Bridge</span>
+          <h3>Data-Driven Decisions</h3>
+          <p>SQL, Power BI, and statistical testing that turn raw data into decisions both sides trust.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow reveal">02 — Toolkit</div>
+    <h2 class="reveal">Skills, organized by how I use them</h2>
+    <div class="skills-grid">
+      <div class="card reveal" data-track="ai">
+        <span class="tag ai">AI Track</span>
+        <h3>Generative AI &amp; LLMs</h3>
+        <div class="chips"><span>LangChain</span><span>RAG</span><span>OpenAI GPT-4 / 4o</span><span>LLaMA</span><span>Ollama</span><span>Embeddings</span><span>Semantic &amp; Hybrid Search (BM25 + Dense)</span><span>Document Ingestion &amp; Chunking</span><span>Prompt-Driven Workflows</span><span>Model Evaluation</span><span>Pinecone</span><span>ChromaDB</span></div>
+      </div>
+      <div class="card reveal" data-track="ai">
+        <span class="tag ai">AI Track</span>
+        <h3>Backend &amp; API Development</h3>
+        <div class="chips"><span>FastAPI</span><span>Django</span><span>RESTful APIs</span><span>Async Request Handling</span><span>React.js</span><span>HTML / CSS</span><span>Python Test Automation</span><span>Bash Scripting</span></div>
+      </div>
+      <div class="card reveal" data-track="ai">
+        <span class="tag ai">AI Track</span>
+        <h3>Cloud &amp; Data Engineering</h3>
+        <div class="chips"><span>GCP · BigQuery</span><span>Cloud Composer</span><span>Cloud Data Fusion</span><span>Pub/Sub</span><span>AWS · S3 / EC2 / Lambda</span><span>Apache Airflow</span><span>Kafka</span><span>ETL Pipelines</span><span>Real-Time Streaming</span></div>
+      </div>
+      <div class="card reveal" data-track="pm">
+        <span class="tag pm">Product Track</span>
+        <h3>Product Management</h3>
+        <div class="chips"><span>Product Roadmaps</span><span>MVP Definition</span><span>Backlog Grooming</span><span>Prioritization</span><span>A/B Testing</span><span>Revenue Modeling (CPM, CTR, Commissions)</span><span>KPI Definition &amp; Tracking</span><span>Jira</span><span>Confluence</span></div>
+      </div>
+      <div class="card reveal" data-track="pm">
+        <span class="tag pm">Product Track</span>
+        <h3>Business Analysis</h3>
+        <div class="chips"><span>Requirements Elicitation</span><span>BRDs</span><span>SOPs</span><span>Functional Specs</span><span>User Stories</span><span>Gap Analysis</span><span>UAT</span><span>Use Cases</span><span>Process Mapping</span><span>BPMN / Swimlanes</span><span>MS Visio</span><span>Lucidchart</span></div>
+      </div>
+      <div class="card reveal" data-track="pm">
+        <span class="tag pm">Product Track</span>
+        <h3>Statistics &amp; Experimentation</h3>
+        <div class="chips"><span>Hypothesis Testing</span><span>Z-tests</span><span>Paired t-tests</span><span>A/B Testing</span><span>Cohort Analysis</span><span>Trend Analysis</span><span>Stakeholder Management</span><span>Workshop Facilitation</span></div>
+      </div>
+      <div class="card reveal" data-track="both">
+        <span class="tag both">Shared Core</span>
+        <h3>Programming &amp; Databases</h3>
+        <div class="chips"><span>Python</span><span>SQL</span><span>Java</span><span>JavaScript</span><span>R</span><span>MySQL</span><span>MS SQL Server</span><span>PostgreSQL</span><span>MongoDB</span></div>
+      </div>
+      <div class="card reveal" data-track="both">
+        <span class="tag both">Shared Core</span>
+        <h3>Data Analysis &amp; Visualization</h3>
+        <div class="chips"><span>Power BI</span><span>Looker Studio</span><span>Google Analytics</span><span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>MS Excel (Pivot, VLOOKUP, INDEX-MATCH)</span><span>SQL Reporting</span></div>
+      </div>
+      <div class="card reveal" data-track="both">
+        <span class="tag both">Shared Core</span>
+        <h3>DevOps &amp; Methodologies</h3>
+        <div class="chips"><span>Docker</span><span>CI/CD (GitHub)</span><span>Git / GitHub</span><span>Containerized Deployment</span><span>Agile</span><span>Scrum</span><span>Waterfall</span><span>SDLC</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow reveal">03 — Experience</div>
+    <h2 class="reveal">Where I've built and led</h2>
+    <div class="timeline">
+
+      <div class="job reveal">
+        <div class="job-head">
+          <h3>Network Engineer</h3>
+          <span class="when">Mar 2026 – Present</span>
+        </div>
+        <p class="org"><b>Lancesoft Inc.</b> (Client: T-Mobile) · Dallas, TX</p>
+        <ul>
+          <li data-track="ai">Developed <b>Python automation scripts</b> for end-to-end testing, cutting manual testing effort by <b>40%</b> and expanding automated coverage across <b>15+ OTT messaging and streaming applications</b>.<span class="tag ai">AI</span></li>
+          <li data-track="ai">Built <b>Pandas / NumPy data-processing pipelines</b> to analyze large-scale mobile network telemetry, automating anomaly detection across <b>10+ 5G/LTE KPIs</b> and reducing manual analysis effort by <b>35%</b>.<span class="tag ai">AI</span></li>
+          <li data-track="pm">Defined and tracked <b>10+ network performance KPIs</b> through 5G NR/LTE benchmarking across <b>3 target markets</b> using TEMS Paragon, delivering reliable data for optimization decisions.<span class="tag pm">Product</span></li>
+          <li data-track="pm">Authored <b>SOPs, standardized testing procedures, and root-cause analysis reports</b>, partnering with cross-functional engineering teams to improve issue-resolution time by <b>30%</b> and cut reporting effort by <b>25%</b>.<span class="tag pm">Product</span></li>
+        </ul>
+      </div>
+
+      <div class="job reveal">
+        <div class="job-head">
+          <h3>Software Engineer</h3>
+          <span class="when">Aug 2025 – Mar 2026</span>
+        </div>
+        <p class="org"><b>Community Dreams Foundation</b> · Dallas, TX</p>
+        <ul>
+          <li data-track="ai">Developed <b>Python backend services and RESTful APIs</b> for the DreamStream volunteer platform, supporting <b>500+ monthly active users</b> across 10+ nonprofit programs while improving reliability.<span class="tag ai">AI</span></li>
+          <li data-track="ai">Built an <b>LLM-powered RAG chatbot prototype</b> using Ollama, ChromaDB, and Python, automating responses to <b>80% of common volunteer queries</b>.<span class="tag ai">AI</span></li>
+          <li data-track="both">Designed and optimized <b>PostgreSQL data pipelines and SQL queries</b>, improving data retrieval performance by <b>30%</b> and strengthening stakeholder reporting accuracy.<span class="tag both">Both</span></li>
+          <li data-track="pm">Partnered with cross-functional stakeholders to gather requirements and translate them into <b>user stories and acceptance criteria</b> that shaped platform enhancements.<span class="tag pm">Product</span></li>
+          <li data-track="pm">Performed <b>root-cause analysis</b> using SQL diagnostics and application logs, reducing recurring production issues by <b>25%</b> and improving platform stability.<span class="tag pm">Product</span></li>
+        </ul>
+      </div>
+
+      <div class="job reveal">
+        <div class="job-head">
+          <h3>Business Analyst</h3>
+          <span class="when">Jun 2019 – Dec 2023</span>
+        </div>
+        <p class="org"><b>Empshere Technologies Pvt Ltd</b> · Pune, India</p>
+        <ul>
+          <li data-track="pm">Led <b>25+ enterprise HR system implementations</b> — running 50+ stakeholder workshops, requirements gathering, process mapping (Lucidchart / MS Visio), gap analysis, and authoring BRDs, SOPs, user stories, and functional specs — reducing project rework by <b>30%</b>.<span class="tag pm">Product</span></li>
+          <li data-track="both">Optimized <b>SQL queries, stored procedures, and data models</b> for an HR platform serving <b>50,000+ users</b>, improving report performance by <b>60%</b> and enabling real-time analytics.<span class="tag both">Both</span></li>
+          <li data-track="both">Developed interactive <b>Power BI dashboards with advanced DAX measures</b> for attrition, attendance, and headcount metrics, improving forecasting accuracy by <b>45%</b>.<span class="tag both">Both</span></li>
+          <li data-track="pm">Managed <b>UAT, sprint planning, and change-impact analysis</b> in Jira and Confluence, automating payroll and compliance workflows and reducing operational delays and manual effort by <b>35–40%</b>.<span class="tag pm">Product</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow reveal">04 — Projects</div>
+    <h2 class="reveal">Selected work across both tracks</h2>
+    <div class="projects-grid">
+
+      <div class="project reveal" data-track="ai">
+        <div class="project-top">
+          <div><span class="tag ai">GenAI Engineering</span><h3 style="margin-top:10px">BillyBot — RAG Knowledge Assistant</h3></div>
+          <a class="repo" href="https://github.com/LalitKolhe0/BillyBot" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-1-2.6c3.2-.4 6.5-1.6 6.5-7A5.4 5.4 0 0 0 20 4.8 5 5 0 0 0 19.9 1S18.7.7 16 2.5a13.4 13.4 0 0 0-7 0C6.3.7 5.1 1 5.1 1A5 5 0 0 0 5 4.8a5.4 5.4 0 0 0-1.5 3.7c0 5.4 3.3 6.6 6.4 7a3.4 3.4 0 0 0-.9 2.6V22"/></svg>Repo</a>
+        </div>
+        <p>End-to-end Retrieval-Augmented Generation pipeline answering user queries from document collections — document ingestion and embeddings via Ollama with ChromaDB for efficient retrieval, a local LLM for context-aware natural-language responses, containerized with Docker and shipped through GitHub CI/CD.</p>
+        <div class="stack"><span>Python</span><span>React.js</span><span>Ollama</span><span>ChromaDB</span><span>Docker</span><span>GitHub CI/CD</span></div>
+      </div>
+
+      <div class="project reveal" data-track="pm">
+        <div class="project-top">
+          <div><span class="tag pm">Product Strategy</span><h3 style="margin-top:10px">StudentConnect — Dual-Sided Marketplace</h3></div>
+        </div>
+        <p>Designed a dual-sided marketplace connecting international students with housing providers and local businesses. Built a full product roadmap from MVP to v2.0 with key milestones, and a multi-stream revenue model (CPM, CTR, commissions) projecting <b style="color:var(--text)">$3.2M revenue by 2028</b>.</p>
+        <div class="stack"><span>Product Roadmapping</span><span>Revenue Modeling</span><span>Market Analysis</span><span>Competitive Analysis</span></div>
+      </div>
+
+      <div class="project reveal" data-track="ai">
+        <div class="project-top">
+          <div><span class="tag ai">Data Engineering</span><h3 style="margin-top:10px">Real-Time Data Streaming Pipeline</h3></div>
+          <a class="repo" href="https://github.com/LalitKolhe0/Data_Streaming_Project" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-1-2.6c3.2-.4 6.5-1.6 6.5-7A5.4 5.4 0 0 0 20 4.8 5 5 0 0 0 19.9 1S18.7.7 16 2.5a13.4 13.4 0 0 0-7 0C6.3.7 5.1 1 5.1 1A5 5 0 0 0 5 4.8a5.4 5.4 0 0 0-1.5 3.7c0 5.4 3.3 6.6 6.4 7a3.4 3.4 0 0 0-.9 2.6V22"/></svg>Repo</a>
+        </div>
+        <p>End-to-end streaming architecture using Google Cloud Pub/Sub for real-time message ingestion from multiple source systems, with transformation logic processing events before loading into BigQuery — ensuring data integrity and optimized query performance.</p>
+        <div class="stack"><span>GCP Pub/Sub</span><span>BigQuery</span><span>Python</span><span>Streaming Processing</span></div>
+      </div>
+
+      <div class="project reveal" data-track="pm">
+        <div class="project-top">
+          <div><span class="tag pm">Experimentation</span><h3 style="margin-top:10px">Vungle Ad Optimization — A/B Testing at Scale</h3></div>
+        </div>
+        <p>Large-scale A/B test comparing legacy vs. data-driven ad algorithms across <b style="color:var(--text)">250M+ impressions and 1M+ installs</b>. Applied Z-tests and paired t-tests to surface the trade-off: Algorithm A won on installs (CR 0.402% vs. 0.354%), while Algorithm B significantly improved revenue per impression (p = 0.0012) — enabling a data-backed product recommendation.</p>
+        <div class="stack"><span>Python</span><span>Z-test</span><span>Paired t-test</span><span>A/B Testing</span></div>
+      </div>
+
+      <div class="project reveal" data-track="ai">
+        <div class="project-top">
+          <div><span class="tag ai">Data Engineering</span><h3 style="margin-top:10px">HR Analytics ETL Pipeline</h3></div>
+          <a class="repo" href="https://github.com/LalitKolhe0/etl-pipeline" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-1-2.6c3.2-.4 6.5-1.6 6.5-7A5.4 5.4 0 0 0 20 4.8 5 5 0 0 0 19.9 1S18.7.7 16 2.5a13.4 13.4 0 0 0-7 0C6.3.7 5.1 1 5.1 1A5 5 0 0 0 5 4.8a5.4 5.4 0 0 0-1.5 3.7c0 5.4 3.3 6.6 6.4 7a3.4 3.4 0 0 0-.9 2.6V22"/></svg>Repo</a>
+        </div>
+        <p>Comprehensive ETL pipeline — Python extraction from multiple source systems, Cloud Data Fusion transformations with custom business logic, and BigQuery loading with partitioning and clustering. Orchestrated with Cloud Composer (Airflow) DAGs, surfaced through interactive Looker dashboards for stakeholders.</p>
+        <div class="stack"><span>Python</span><span>BigQuery</span><span>Data Fusion</span><span>Cloud Composer</span><span>Airflow</span><span>Looker</span></div>
+      </div>
+
+      <div class="project reveal" data-track="pm">
+        <div class="project-top">
+          <div><span class="tag pm">Systems Analysis</span><h3 style="margin-top:10px">Reality-Sync — System Design &amp; Analysis</h3></div>
+        </div>
+        <p>System analysis and design for a virtual–physical integration platform: BPMN swim lanes for 4 core processes, 8 detailed use cases, and context diagrams of component interactions. Architected a location-based social networking system with class diagrams for 8 key entities and a normalized schema supporting 50+ event types for real-time integrations.</p>
+        <div class="stack"><span>BPMN</span><span>UML</span><span>Use Cases</span><span>Class Diagrams</span><span>DB Schema Design</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= EDUCATION / CREDENTIALS ================= -->
+<section id="education">
+  <div class="wrap">
+    <div class="eyebrow reveal">05 — Education &amp; Credentials</div>
+    <h2 class="reveal">Foundation behind the work</h2>
+    <div class="edu-grid">
+      <div class="edu-col">
+        <p class="subhead reveal">Education</p>
+        <div class="edu reveal">
+          <div><h3>MS, Information Technology Management</h3><p>The University of Texas at Dallas · Richardson, TX</p></div>
+          <span class="when">2024 – 2025</span>
+        </div>
+        <div class="edu reveal">
+          <div><h3>MBA, Project Management</h3><p>MIT WPU School of Management · Pune, India</p></div>
+          <span class="when">2019 – 2021</span>
+        </div>
+        <div class="edu reveal">
+          <div><h3>BE, Civil Engineering</h3><p>University of Pune · Pune, India</p></div>
+          <span class="when">2012 – 2016</span>
+        </div>
+      </div>
+      <div class="cred-col">
+        <p class="subhead reveal">Certifications</p>
+        <div class="cred reveal">
+          <div class="ic">✦</div>
+          <div><h3>Agile Project Management</h3><p>Certified</p></div>
+        </div>
+        <div class="cred reveal">
+          <div class="ic">✦</div>
+          <div><h3>Salesforce Certified Administrator</h3><p>Salesforce</p></div>
+        </div>
+        <p class="subhead reveal" style="margin-top:14px">Leadership</p>
+        <div class="cred reveal">
+          <div class="ic">◈</div>
+          <div><h3>Teaching Assistant</h3><p>Healthcare Information Systems &amp; Product Management · UT Dallas · Jan – May 2025</p></div>
+        </div>
+        <div class="cred reveal">
+          <div class="ic">◈</div>
+          <div><h3>Ambassador, ITM Student Leadership Council</h3><p>UT Dallas · May 2024 – May 2025</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" style="padding-top:20px">
+  <div class="wrap">
+    <div class="contact reveal">
+      <div class="eyebrow" style="justify-content:center">06 — Contact</div>
+      <h2>Need someone who can build it <span style="background:linear-gradient(120deg,var(--cyan),var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent">and</span> drive it?</h2>
+      <p>I'm open to AI/ML engineering, product management, and business analysis roles — in Dallas or anywhere worth relocating for. Let's talk.</p>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:lalitkolhe2010@gmail.com">Email me</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/lalit-kolhe/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/LalitKolhe0" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href="tel:+19459007264">Call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <b>Lalit Kishor Kolhe</b> · Dallas, TX · Open to relocation<br>
+  AI Engineering ⌁ + Product Strategy ◎ · © 2026
+</footer>
+
+<script>
+// ---------- photo fallback ----------
+(function(){
+  var img = document.getElementById('profilePhoto');
+  var mono = document.getElementById('monogram');
+  function fallback(){ img.style.display='none'; mono.style.display='flex'; }
+  if(!/^(data:|https?:)/.test(img.getAttribute('src'))) fallback();
+  else img.addEventListener('error', fallback);
+})();
+
+// ---------- role lens ----------
+(function(){
+  var buttons = document.querySelectorAll('.lens button');
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      buttons.forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+      document.body.classList.remove('lens-ai','lens-pm');
+      var lens = btn.getAttribute('data-lens');
+      if(lens === 'ai') document.body.classList.add('lens-ai');
+      if(lens === 'pm') document.body.classList.add('lens-pm');
+    });
+  });
+})();
+
+// ---------- scroll reveal ----------
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in')}); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){ io.observe(e); });
+})();
+
+// ---------- scroll progress ----------
+(function(){
+  var bar = document.getElementById('progress');
+  function update(){
+    var h = document.documentElement;
+    var pct = h.scrollTop / (h.scrollHeight - h.clientHeight) * 100;
+    bar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', update, {passive:true});
+  update();
+})();
+</script>
+</body>
+</html>
